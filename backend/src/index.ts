@@ -1,6 +1,10 @@
 import  express from "express";   
+import userRouter from "./routers/user";
+import workerRouter from "./routers/worker";
 
 const app = express();
 
-//postgres + prisma => ORM
-//postgresql://neondb_owner:npg_nBcjO85YskJp@ep-morning-smoke-a5y97g8c-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require
+app.use("/v1/user", userRouter);
+app.use("/v1/worker", workerRouter);
+
+app.listen(3000)
